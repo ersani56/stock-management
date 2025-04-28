@@ -30,8 +30,10 @@ class PenjualanResource extends Resource
                         ->view('filament.forms.components.qr-scanner')
                         ->live(),
                 ]),
-
-                Forms\Components\Select::make('barang_id')
+                Forms\Components\TextInput::make('kode_barang')
+                    ->required()
+                    ->unique(),
+                Forms\Components\Select::make('kode_barng')
                     ->label('Barang')
                     ->options(Barang::all()->pluck('nama_barang', 'id'))
                     ->searchable()
